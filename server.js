@@ -1,20 +1,43 @@
-var greet = require("./greet1");
+var Emitter = require('./emitter');
 
-greet();
+var emtr = new Emitter();
 
-var greet2 = require("./greet2").greet;
-greet2();
+emtr.on('greet', function() {
+  console.log('somewhere, someone said hello');
+});
 
-var greet3 = require("./greet3");
-greet3.greet();
-greet3.greeting = 'changed hello world';
+emtr.on('greet', function() {
+  console.log('a greeting occurred!')
+})
 
-var greet3b = require("./greet3");
-greet3b.greet();
+console.log('hello');
+emtr.emit('greet');
 
-var Greet4 = require("./greet4")
-var grtr = new Greet4();
-grtr.greet();
-
-var greet5 = require("./greet5").greet;
-greet5();
+// //object properties and methods
+// var obj = {
+//   greet: 'hello'
+// }
+//
+// console.log(obj.greet);
+// console.log(obj['greet']);
+// var prop = 'greet';
+// console.log(obj[prop]);
+//
+// //functions and arrays
+// var arr = [];
+//
+// arr.push(function(){
+//   console.log('hello world 1');
+// })
+//
+// arr.push(function(){
+//   console.log('hello world 2');
+// })
+//
+// arr.push(function(){
+//   console.log('hello world 3');
+// })
+//
+// arr.forEach(function (item){
+//   item();
+// })
