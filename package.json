@@ -13,5 +13,10 @@
     "express": "^4.13.4",
     "moment": "node_modules/moment",
     "mongoose": "^4.4.11"
+  },
+  "devDependencies": {
+    "body-parser": "^1.15.0",
+    "ejs": "^2.4.1",
+    "mongoose": "^4.4.12"
   }
 }
