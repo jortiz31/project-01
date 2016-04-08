@@ -10,6 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "bower": "^1.7.9",
+    "express": "^4.13.4",
+    "moment": "node_modules/moment",
     "mongoose": "^4.4.11"
   }
 }
