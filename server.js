@@ -1,14 +1,11 @@
 var express = require('express');
 var app = express();
-var mongoose = require('mongoose');
-var config = require('./config');
+var PORT = process.env.PORT || 1337;
 
-var port = process.env.PORT || 1337;
+app.get('/', function(req, res){
+  res.send('Todo API Root');
+});
 
-app.use('/assets', express.static(__dirname + '/public'));
-
-app.set('view engine', 'ejs');
-
-mongoose.connect(config.getDbConnectionString());
-
-app.listen(port);
+app.listen(PORT, function(){
+  console.log('express is lisening on ' + PORT + '!');
+});
