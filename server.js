@@ -2,17 +2,8 @@
 var express = require('express');
 var app = express();
 var PORT = process.env.PORT || 1337;
-var todos = [{
-  description: 'Meet mom for lunch',
-  completed: false,
 
-}];
-
-
-app.use(express.static('public'));
-
-
-
+app.use(express.static('views'));
 
 // app.get('/', function(req, res){
 //   res.send('Hello World');
