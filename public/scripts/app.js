@@ -15,6 +15,7 @@ $(document).ready(function() {
 function handleSneakerSubmit(event){
   event.preventDefault();
   var formData = $(this).serialize();
+  console.log(formData);
   $.ajax({
     method: 'POST',
     url: '/api/sneakers',
@@ -31,7 +32,7 @@ function handleFormSubmitRes(data){
 }
 
 function handleRecAllSneakers(json){
-    // console.log(json)
+    console.log(json);
     json.forEach(renderSneaker);
 }
 

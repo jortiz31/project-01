@@ -1,6 +1,7 @@
 'use strict';
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
 var PORT = process.env.PORT || 1337;
 
 //serve static files
@@ -8,6 +9,7 @@ app.use(express.static(__dirname + '/public'));
 
 //vendor assets
 app.use('/vendor', express.static(__dirname + '/bower_components'));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 var controllers = require('./controllers');
 
