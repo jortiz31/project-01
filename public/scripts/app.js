@@ -3,12 +3,17 @@
 
 $(document).ready(function() {
   console.log('app.js loaded!');
-  $.ajax({
-    method: 'GET',
-    url: '/api/sneakers',
-    success: handleRecAllSneakers,
-    error: handdleError
+  $.get('/api/albums').success(function(sneakers) {
+    sneakers.forEach(function(sneakers) {
+      renderSneaker(sneaker);
+    });
   });
+  // $.ajax({
+  //   method: 'GET',
+  //   url: '/api/sneakers',
+  //   success: handleRecAllSneakers,
+  //   error: handdleError
+  // });
   $('#sneaker-form form').on("submit", handleSneakerSubmit);
 });
 
