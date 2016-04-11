@@ -34,45 +34,46 @@
         <div class="page-header">
           <h1>Sneaky</h1>
         </div>
-
-        <div class="row">
-          <div class="col-md-12">
-            <form>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Brand</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1">Size</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1">Release Date</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1">Price</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-              </div>
-              <button type="submit" class="btn btn-danger btn-block">Submit</button>
-            </form>
+        <section id="sneaker-form" class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <form>
+                <div class="form-group">
+                  <label for="brand">Brand</label>
+                  <input type="text" class="form-control" id="brand">
+                </div>
+                <div class="form-group">
+                  <label for="style">Style</label>
+                  <input type="text" class="form-control" id="style">
+                </div>
+                <div class="form-group">
+                  <label for="releaseDate">Release Date</label>
+                  <input type="text" class="form-control" id="releaseDate">
+                </div>
+                <div class="form-group">
+                  <label for="price">Price</label>
+                  <input type="text" class="form-control" id="price">
+                </div>
+                <button type="submit" class="btn btn-danger btn-block">Submit</button>
+              </form>
+            </div>
           </div>
-        </div>
+        </section>
 
       </div>
 
       <section class="container">
       <div class="row">
         <div class="col-md-12">
-          <h2>Collection</h2>
+          <h2>Sneakers</h2>
         </div>
       </div>
+      <!-- sneakers -->
+      <div id='sneakers'>
+        <script id="sneaker-template" type="text/x-handlebars-template">
 
-      <div id='albums'>
-        <!-- <script id="album-template" type="text/x-handlebars-template"> -->
-
-
-          <div class="row album data">
+          <!-- one sneaker -->
+          <div class="row sneaker">
 
             <div class="col-md-12">
               <div class="panel panel-default">
@@ -80,7 +81,7 @@
                   <div class='row'>
 
                     <div class="col-md-3 col-xs-12 thumbnail album-art">
-                      <img src="http://cdn.sneakernews.com/wp-content/uploads/2015/12/air-jordan-1-bred-releasing-fall-2016.jpg" alt="album image">
+                      <img src="http://cdn.sneakernews.com/wp-content/uploads/2015/12/air-jordan-1-bred-releasing-fall-2016.jpg" alt="sneaker image">
                     </div>
 
                     <div class="col-md-9 col-xs-12">
@@ -88,23 +89,23 @@
                         <li class="list-group-item">
 
 
-                          <h4 class='inline-header'>Style:</h4>
-                          <span class='shoe-style'>{{shoeStyle}}</span>
-                        </li>
+                          <li class="list-group-item">
+                            <h4 class='inline-header'>Brand:</h4>
+                            <span class='shoe-brand'>{{sneakerBrand}}</span>
+                          </li>
 
-                        <li class="list-group-item">
-                          <h4 class='inline-header'>Brand:</h4>
-                          <span class='shoe-brand'>{{shoeBrand}}</span>
+                          <h4 class='inline-header'>Style:</h4>
+                          <span class='shoe-style'>{{sneakerStyle}}</span>
                         </li>
 
                         <li class="list-group-item">
                           <h4 class='inline-header'>Release Date:</h4>
-                          <span class='artist-name'>{{releaseDate}}</span>
+                          <span class='shoe-release-date'>{{releaseDate}}</span>
                         </li>
 
                         <li class="list-group-item">
-                          <h4 class='inline-header'>Color Way:</h4>
-                          <span class='album-releaseDate'>{{colorWay}}</span>
+                          <h4 class='inline-header'>Price :</h4>
+                          <span class='shoe-size'>{{price}}</span>
                         </li>
 
 
@@ -113,7 +114,7 @@
 
                   </div>
 
-                <!-- </script> -->
+                </script>
 
                 </div>
               </div>

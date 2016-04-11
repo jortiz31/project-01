@@ -1,27 +1,22 @@
-/* hard-coded data! */
-var sampleShoes = [];
-sampleShoes.push({
-             shoeStyle: 'AJ 1',
-             brand: 'NIKE',
-             releaseDate: '1985, September 15',
-             colorWay: [ 'Black', 'Red' ]
-           });
-sampleShoes.push({
-            shoeStyle: 'AJ 13',
-            brand: 'NIKE',
-            releaseDate: '1997, September 15',
-            colorWay: [ 'Black', 'Red', 'White/True' ]
-});
-
+//client side js
 
 
 $(document).ready(function() {
   console.log('app.js loaded!');
+  $.ajax({
+    method: 'GET',
+    url: '/api/sneakers',
+    success: handleRecAllSneakers,
+    error: handdleError
+  });
+  $(#sneaker-form form).on("submit" handleRecAllSneakers);
 });
 
 
 
 function renderShoe(shoe) {
-  console.log('rendering shoe:', shoe);
+  console.log('rendering shoe:', sneaker);
+
+
 
 }
