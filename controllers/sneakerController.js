@@ -4,7 +4,6 @@ var db = require('../models');
 
 // get /api/sneakers
 function index(req, res) {
-  //res.json(sneakers);
   db.Sneaker.find({}, function(err, allSneakers){
     res.json(allSneakers);
   });

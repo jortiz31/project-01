@@ -9,7 +9,7 @@ app.use(express.static(__dirname + '/public'));
 //vendor assets
 app.use('/vendor', express.static(__dirname + '/bower_components'));
 
-// var controllers = require('./controllers');
+var controllers = require('./controllers');
 
 
 //*routes*//
@@ -22,7 +22,12 @@ app.get('/', function homepage (req, res) {
 });
 
 //json api endpoints
-// app.get('/api', controllers.api.index);
+app.get('/api', controllers.api.index);
+
+app.get('/api/sneakers', controllers.sneakers.index);
+app.get('/api/sneakers/:sneakerId', controllers.sneakers.show);
+app.post('/api/sneakers', controllers.sneakers.create);
+// app.post('/api/sneakers/:sneakerId/size', controllers.sneakerSize.create);
 
 
 app.listen(PORT, function(){

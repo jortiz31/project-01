@@ -4,10 +4,11 @@ var Schema = mongoose.Schema;
 var Size = require("./size");
 
 var SneakerSchema = new Schema({
-  shoeStyle: String,
-  shoeBrand: String,
+  sneakerStyle: String,
+  sneakerBrand: String,
   releaseDate: String,
-  size: [Size.schema];
+  price: String,
+  size: [Size.schema]
 });
 
 var Sneaker = mongoose.model('Sneaker', SneakerSchema);

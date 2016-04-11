@@ -3,16 +3,16 @@ var db = require("./models");
 var sneakerList = [];
 
 sneakerList.push({
-             shoeStyle: 'AJ 1',
-             brand: 'NIKE',
+             sneakerStyle: 'AJ 1',
+             sneakerBrand: 'NIKE',
              releaseDate: '1985, September 15',
-             colorWay: [ 'Black', 'Red' ]
+             price: '$200'
            });
 sneakerList.push({
-            shoeStyle: 'AJ 13',
-            brand: 'NIKE',
+            sneakerStyle: 'AJ 13',
+            sneakerBrand: 'NIKE',
             releaseDate: '1997, September 15',
-            colorWay: [ 'Black', 'Red', 'White/True' ]
+            price: '$100'
 });
 
 var sizesList = [];
@@ -35,6 +35,7 @@ sneakerList.forEach(function(sneaker){
 });
 
 db.Sneaker.remove({}, function(err, sneakers){
+
   db.Sneaker.create(sneakerList, sizesList, function(err, sneakers){
     if (err) { return console.log('SHIT SON', err); }
     console.log("all sneakers", sneakers);
