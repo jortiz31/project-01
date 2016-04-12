@@ -1,14 +1,14 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-var Size = require("./size");
+var Sizes = require("./size");
 
 var SneakerSchema = new Schema({
   sneakerStyle: String,
   sneakerBrand: String,
   releaseDate: String,
   price: String,
-  size: [Size.schema]
+  size: [Sizes.schema]
 });
 
 var Sneaker = mongoose.model('Sneaker', SneakerSchema);

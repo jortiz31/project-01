@@ -15,28 +15,28 @@ sneakerList.push({
             price: '$100'
 });
 
-var sizesList = [];
+var sizeList = [];
 
-sizesList.push({
+sizeList.push({
   size: '11.5'
 });
-sizesList.push({
+sizeList.push({
   size: '10.5'
 });
-sizesList.push({
+sizeList.push({
   size: '11'
 });
-sizesList.push({
+sizeList.push({
   size: '9.5'
 });
 
 sneakerList.forEach(function(sneaker){
-  sneaker.size = sizesList;
+  sneaker.size = sizeList;
 });
 
 db.Sneaker.remove({}, function(err, sneakers){
 
-  db.Sneaker.create(sneakerList, sizesList, function(err, sneakers){
+  db.Sneaker.create(sneakerList, function(err, sneakers){
     if (err) { return console.log('SHIT SON', err); }
     console.log("all sneakers", sneakers);
     console.log("created", sneakers.length, "sneakers");

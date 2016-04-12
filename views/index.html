@@ -99,75 +99,71 @@
       </div>
 
       <section class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h2>Sneakers</h2>
+        <div class="row">
+          <div class="col-md-12">
+            <h2>Sneakers</h2>
+          </div>
         </div>
-      </div>
-      <!-- sneakers -->
-      <div id='sneakers'>
-        <script id="sneaker-template" type="text/x-handlebars-template">
+        <!-- sneakers -->
+        <div id='sneakers'>
+          <script id="sneaker-template" type="text/x-handlebars-template">
+            <!-- one sneaker -->
+            <div class="row sneaker" data-sneaker-id="{{_id}}">
 
-          <!-- one sneaker -->
-          <div class="row sneaker">
+              <div class="col-md-12">
+                <div class="panel panel-default">
+                  <div class="panel-body">
 
-            <div class="col-md-12">
-              <div class="panel panel-default">
-                <div class="panel-body">
+                    <!-- begin sneaker internal row -->
+                    <div class='row'>
+                      <div class="col-md-3 col-xs-12 thumbnail album-art">
+                        <!-- <img src="http://cdn.sneakernews.com/wp-content/uploads/2015/12/air-jordan-1-bred-releasing-fall-2016.jpg" alt="sneaker image"> -->
+                      </div>
 
-                  <div class='row'>
+                      <div class="col-md-9 col-xs-12">
 
-                    <div class="col-md-3 col-xs-12 thumbnail album-art">
-                      <img src="http://cdn.sneakernews.com/wp-content/uploads/2015/12/air-jordan-1-bred-releasing-fall-2016.jpg" alt="sneaker image">
+                        <ul class="list-group">
+
+                            <li class="list-group-item">
+                              <h4 class='inline-header'>Brand:</h4>
+                              <span class='shoe-brand'>{{sneakerBrand}}</span>
+                            </li>
+
+                            <li class="list-group-item">
+                              <h4 class='inline-header'>Style :</h4>
+                              <span class='shoe-style'>{{sneakerStyle}}</span>
+                            </li>
+
+                            <li class="list-group-item">
+                              <h4 class='inline-header'>Release Date :</h4>
+                              <span class='shoe-release-date'>{{releaseDate}}</span>
+                            </li>
+
+                            <li class="list-group-item">
+                              <h4 class='inline-header'>Price :</h4>
+                              <span class='shoe-price'>{{price}}</span>
+                            </li>
+
+                            <li class="list-group-item">
+                              <h4 class="inline-header">Sizes :</h4>
+                              <span class="sneaker-size">{{#each size}} {{size}} , {{/each}}</span>
+                            </li>
+
+                        </ul>
                     </div>
 
-                    <div class="col-md-9 col-xs-12">
-
-                      <ul class="list-group">
-
-                          <li class="list-group-item">
-                            <h4 class='inline-header'>Brand:</h4>
-                            <span class='shoe-brand'>{{sneakerBrand}}</span>
-                          </li>
-
-                          <li class="list-group-item">
-                            <h4 class='inline-header'>Style:</h4>
-                            <span class='shoe-style'>{{sneakerStyle}}</span>
-                          </li>
-
-                          <li class="list-group-item">
-                            <h4 class='inline-header'>Release Date:</h4>
-                            <span class='shoe-release-date'>{{releaseDate}}</span>
-                          </li>
-
-                          <li class="list-group-item">
-                            <h4 class='inline-header'>Price :</h4>
-                            <span class='shoe-size'>{{price}}</span>
-                          </li>
-
-                          <li class="list-group-item">
-                            <h4 class="inline-header">Sizes :</h4>
-                            <span>&ndash; {{#each size}} {{/each}}</span>
-                          </li>
-
-                      </ul>
                   </div>
 
+              </div>
+                <div class='panel-footer'>
+                    <div class='panel-footer'>
+                      <button class='btn btn-danger add-size'>Add Size</button>
+                      <button type="button" class="btn btn-danger delete-sneaker">Remove Sneaker</button>
+                    </div>
                 </div>
-
-              </div>
-              <div class='panel-footer'>
-                  <div class='panel-footer'>
-                    <button class='btn btn-danger add-size'>Add Size</button>
-                  </div>
-              </div>
-
             </div>
-
           </div>
           <!-- end one piece of data -->
-
-
         </div>
       </script>
     </div>
@@ -179,12 +175,12 @@
         </div>
       </footer>
 
-      <div class="modal fade" tabindex="-1" role="dialog" id="songModal">
+      <div class="modal fade" tabindex="-1" role="dialog" id="sizeModal">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title">Create Size</h4>
+                  <h4 class="modal-title">Add Size</h4>
                 </div>
                 <div class="modal-body">
 
@@ -194,7 +190,7 @@
                     <div class="form-group">
                       <label class="col-md-4 control-label" for="size">Size</label>
                       <div class="col-md-4">
-                        <input id="size" name="size" type="text" placeholder="" class="form-control input-md" required="">
+                        <input id="sneakerSize" name="sneakerSize" type="text" placeholder="" class="form-control input-md" required="">
                       </div>
                     </div>
 
@@ -202,8 +198,9 @@
 
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" id="saveSong">Save changes</button>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" id="saveSize">Save changes</button>
+
                 </div>
               </div>
             </div>
