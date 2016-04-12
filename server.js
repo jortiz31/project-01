@@ -29,6 +29,7 @@ app.get('/api/sneakers', controllers.sneakers.index);
 app.get('/api/sneakers/:sneakerId', controllers.sneakers.show);
 app.post('/api/sneakers', controllers.sneakers.create);
 app.delete('/api/sneakers/:sneakerId', controllers.sneakers.destroy);
+app.put('/api/sneakers/:seakerId', controllers.sneakers.update);
 app.post('/api/sneakers/:sneakerId/size', controllers.sneakerSize.create);
 
 

@@ -9,10 +9,12 @@ body {
   /* Margin bottom by footer height */
   font-family: 'Marvel', sans-serif;
   margin-bottom: 60px;
-  /*Background-image: linear-gradient(rgba(0, 0, 0, 0.64), rgba(0, 0, 0, 0.71)), url(img/bg.jpeg);
+  /*background-image: linear-gradient(rgba(0, 0, 0, 0.64), rgba(0, 0, 0, 0.71)), url(img/bg.jpeg);
   background-size: cover;
   background-position: center;
-  color: #fff;*/
+  color: #fff;
+  min-width: 100%;
+  min-height: 100%;*/
 }
 .footer {
   position: absolute;
@@ -46,4 +48,7 @@ h4, .panel-body {
 
 .data {
   color: #000;
+}
+.hidden{
+  display: none;
 }

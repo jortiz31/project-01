@@ -82,7 +82,7 @@
 
                  <!-- Button -->
                  <div class="form-group">
-                   <label class="col-md-4 control-label" for="singlebutton">Save Sneaker</label>
+                   <label class="col-md-4 control-label" for="singlebutton">Add Sneaker</label>
                    <div class="col-md-4">
                      <button id="singlebutton" name="singlebutton" class="btn btn-danger">Submit</button>
                    </div>
@@ -101,7 +101,7 @@
       <section class="container">
         <div class="row">
           <div class="col-md-12">
-            <h2>Sneakers</h2>
+            <h2>Sneaker Collection</h2>
           </div>
         </div>
         <!-- sneakers -->
@@ -126,27 +126,27 @@
 
                             <li class="list-group-item">
                               <h4 class='inline-header'>Brand:</h4>
-                              <span class='shoe-brand'>{{sneakerBrand}}</span>
+                              <span class='sneaker-brand'>{{sneakerBrand}}</span>
                             </li>
 
                             <li class="list-group-item">
                               <h4 class='inline-header'>Style :</h4>
-                              <span class='shoe-style'>{{sneakerStyle}}</span>
+                              <span class='sneaker-style'>{{sneakerStyle}}</span>
                             </li>
 
                             <li class="list-group-item">
                               <h4 class='inline-header'>Release Date :</h4>
-                              <span class='shoe-release-date'>{{releaseDate}}</span>
+                              <span class='sneaker-releaseDate'>{{releaseDate}}</span>
                             </li>
 
                             <li class="list-group-item">
                               <h4 class='inline-header'>Price :</h4>
-                              <span class='shoe-price'>{{price}}</span>
+                              <span class='sneaker-price'>{{price}}</span>
                             </li>
 
                             <li class="list-group-item">
                               <h4 class="inline-header">Sizes :</h4>
-                              <span class="sneaker-size">{{#each size}} {{size}} , {{/each}}</span>
+                              <span class="sneaker-size">{{#each size}} {{size}} <br> {{/each}}</span>
                             </li>
 
                         </ul>
@@ -157,8 +157,10 @@
               </div>
                 <div class='panel-footer'>
                     <div class='panel-footer'>
-                      <button class='btn btn-danger add-size'>Add Size</button>
-                      <button type="button" class="btn btn-danger delete-sneaker">Remove Sneaker</button>
+                      <button class='btn btn-success add-size'>Add Size</button>
+                      <button class="btn btn-primary edit-sneaker">Edit Collection</button>
+                      <button class="btn btn-danger delete-sneaker">Remove Sneaker</button>
+                      <button class="btn btn-info save-sneaker hidden">Save Changes</button>
                     </div>
                 </div>
             </div>
@@ -197,11 +199,12 @@
                   </fieldset>
 
                 </div>
+
                 <div class="modal-footer">
                   <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                   <button type="button" class="btn btn-primary" id="saveSize">Save changes</button>
-
                 </div>
+
               </div>
             </div>
           </div>

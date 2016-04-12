@@ -16,17 +16,75 @@ $(document).ready(function() {
       });
     $(this).trigger('reset');
   });
-
+  //add size handler
   $('#sneakers').on('click', '.add-size', handleAddSizeClick);
-  // TODO: fix this!
+  //save size
   $('#saveSize').on('click', handleNewSizeSumbit);
   //deletes sneaker
-  $('#sneakers').on('click', '.delete-sneaker', handleDeleteSneaker);
-
+  $('#sneakers').on('click', '.delete-sneaker', handleDeleteSneakerClick);
+  //edit handler
+  $('#sneakers').on('click', '.edit-sneaker', handleSneakerEditClick);
+  //save changes
+  $('#sneakers').on('click', '.save-sneaker', handleSaveChangesClick);
 });
 
-function handleDeleteSneaker(e){
-  var sneakerId = $(this).parents('.sneaker').data('album-id');
+//edit button for a sneaker is clicked this happens
+function handleSneakerEditClick(e){
+  var $sneakerRow = $(this).closest('.sneaker');
+
+  var sneakerId = $sneakerRow.data('sneaker-id');
+  console.log('edit sneaker', sneakerId);
+
+  //show the hidden save button
+  $sneakerRow.find('.save-sneaker').toggleClass('hidden');
+  //hide the edit button
+  $sneakerRow.find('.edit-sneaker').toggleClass('hidden');
+  //get the sneaker brand and replace its field with an input
+  var sneakerBrand = $sneakerRow.find('span.sneaker-brand').text();
+  $sneakerRow.find('span.sneaker-brand').html('<input class="edit-sneaker-brand" value="' + sneakerBrand +'"></input>');
+  //get the sneaker style and replace its field with an input element
+  var sneakerStyle = $sneakerRow.find('span.sneaker-style').text();
+  $sneakerRow.find('span.sneaker-style').html('<input class="edit-sneaker-style" value="' + sneakerStyle +'"></input>');
+  //get the releaseDate and replace its field with and input
+  var releaseDate = $sneakerRow.find('span.sneaker-releaseDate').text();
+  $sneakerRow.find('span.sneaker-releaseDate').html('<input class="edit-sneaker-releaseDate" value="' + releaseDate +'"></input>');
+  //get the price and replace its field with and input
+  var price = $sneakerRow.find('span.sneaker-price').text();
+  $sneakerRow.find('span.sneaker-price').html('<input class="edit-sneaker-price" value="' + price +'"></input>');
+}
+
+function handleSaveChangesClick(e){
+  var sneakerId = $(this).parents('.sneaker').data('sneaker-id');
+  var $sneakerRow = $('[data-sneaker-id=' + sneakerId + ']');
+
+  var data = {
+    style: $sneakerRow.find('.edit-sneaker-style').val(),
+    sneakerBrand: $sneakerRow.find('.edit-sneaker-brand').val(),
+    releaseDate: $sneakerRow.find('.edit-sneaker-releaseDate').val(),
+    price: $sneakerRow.find('.edit-sneaker-price').val()
+  };
+  console.log("PUTTING data for sneaker", sneakerId, "with data", data);
+
+  $.ajax({
+    method: "PUT",
+    url: '/api/sneakers/' + sneakerId,
+    data: data,
+    success: handleSneakerUpdatedResponse
+  });
+}
+
+function handleSneakerUpdatedResponse(data) {
+  console.log('response to update', data);
+
+  var sneakerId = data._id;
+  $('[data-sneaker-id=' + sneakerId + ']').remove();
+  renderSneaker(data);
+
+  $('[data-sneaker-id=' + sneakerId  + ']')[0].scrollIntoView();
+}
+
+function handleDeleteSneakerClick(e){
+  var sneakerId = $(this).parents('.sneaker').data('sneaker-id');
   console.log("this should delete the sneaker " + sneakerId);
   $.ajax({
     url: '/api/sneakers/' + sneakerId,
@@ -34,11 +92,11 @@ function handleDeleteSneaker(e){
     success: handleDeleteSneakerSuccess
   });
 }
-
+//callback after delete takes place on /api/sneakers/:id
 function handleDeleteSneakerSuccess(data){
   var deletedSneakerId = data._id;
   console.log("removing this sneaker from the page", deletedSneakerId);
-  $('div[data-sneaker-id=' + deletedSneakerId + ']').remove();
+  $('[data-sneaker-id=' + deletedSneakerId + ']').remove();
 }
 
 function renderSneaker(sneaker) {
@@ -51,10 +109,10 @@ function renderSneaker(sneaker) {
 
 //when the size button is clicked, display modal goes up
 function handleAddSizeClick(e) {
-  // console.log('add size shit works!');
-  var currentSneakerId = $(this).closest('.sneaker').data('sneaker-id');
-  console.log('id', currentSneakerId);
-  $('#sizeModal').data('sneaker-id', currentSneakerId);
+  console.log('add size shit works!');
+  var thisSneakerId = $(this).closest('.sneaker').data('sneaker-id');
+  console.log('id:', thisSneakerId);
+  $('#sizeModal').data('sneaker-id', thisSneakerId);
   $('#sizeModal').modal(); //pop up modal
 }
 
