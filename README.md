@@ -35,7 +35,7 @@ I stuck with a basic red and white color scheme to commemorate the legendary Air
 
 Method for construction
 
-	             |-------------------------|             |------------|
+	            |-------------------------|             |------------|
                 |     Front End           |------------>|   Backend  |
                 |-------------------------|             |------------|
                            ^    ^                           ^  ^
