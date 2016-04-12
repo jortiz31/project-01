@@ -22,7 +22,7 @@ This App allows you to create, read, update** and delete sneakers from a collect
 
 Method for construction
 
-		            |-------------------------|             |------------|
+		|-------------------------|             |------------|
                 |     Front End           |------------>|   Backend  |
                 |-------------------------|             |------------|
                            ^    ^                           ^  ^
